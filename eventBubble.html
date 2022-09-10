@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event bubble</title>
+</head>
+<body>
+    <h1>Event bubble process</h1>
+
+    <div id="container">
+        <ul id="myList">
+            <li id="firstLi" class="items">Lorem, ipsum dolor.</li>
+            <li class="items">Quisquam, aperiam! Perspiciatis?</li>
+            <li class="items">Tempora, mollitia accusantium?</li>
+            <li class="items">Libero, aliquid dolor?</li>
+            <li class="items">Esse, ducimus error!</li>
+        </ul>
+    </div>
+    <h3>Diagram of event bubble</h3>
+    <img src="https://javascript.info/article/bubbling-and-capturing/eventflow.svg" alt="online img from javasctipt.info" width="400px">
+    <script>
+        // document.getElementById('firstLi').addEventListener('click', function(){
+        //     console.log('Fist item clicked');
+        // })
+
+
+        //stop bubble
+        document.getElementById('firstLi').addEventListener('click', function(event){
+            console.log('Fist item clicked');
+            event.stopPropagation();
+            
+            //stopPropagation stop bubble in parent class 
+            //stopImmediatePropagation stop all the bubbles in the element.
+        })
+
+        
+        document.getElementById('myList').addEventListener('click', function(){
+            console.log('UL clicked');
+        })
+        document.getElementById('container').addEventListener('click', function(){
+            console.log('Container clicked');
+        })
+
+
+        
+    </script>
+</body>
+</html>

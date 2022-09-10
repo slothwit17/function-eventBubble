@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+</head>
+<body>
+    <h1 id="headerText">Event Management</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto quisquam iusto accusantium numquam voluptatum, illum, necessitatibus suscipit nisi hic pariatur culpa harum ducimus. Illum delectus necessitatibus magnam consequatur quibusdam sed vel architecto placeat nesciunt, voluptate deserunt perspiciatis soluta laborum ipsum!</p>
+    <p>Modi esse laboriosam neque quas? Deserunt, error libero. Autem ullam molestias velit placeat, nihil sit recusandae officia consequatur accusamus eligendi nobis facere. Molestias, quo! Obcaecati voluptas ipsa, provident dolor rem consequatur optio vero, tenetur deserunt excepturi quas nulla similique ex.</p>
+    <p>Voluptatem, tempore saepe dolores, rem dolorem molestiae perferendis, delectus harum maiores eaque fuga voluptas voluptates. Reiciendis illum maxime ab corrupti nulla, hic nisi eos omnis odio perspiciatis ducimus assumenda vero amet totam similique laborum! Deleniti neque placeat cum excepturi voluptate.</p>
+    <p>Delectus, libero ex! Nihil sit quo, natus veritatis illo dolor ipsa eius molestias qui libero nesciunt iusto ullam ipsum optio atque temporibus autem in beatae magnam suscipit repellat fuga consequatur! Laboriosam repudiandae eaque assumenda unde reiciendis obcaecati tenetur aliquam? Voluptatibus.</p>
+    <button id="btn1">Click here to change background color</button>
+    <button id="btn2">Click here to change text color</button>
+    <button id="btn3">Click here to change header text</button>
+
+    <script>
+        function changeBackground(){
+             document.body.style.backgroundColor = "tomato";
+        }
+        var btn1 = document.getElementById('btn1');
+        btn1.onclick = changeBackground;
+
+        function textColor(){
+            document.body.style.color = "#bebebe";
+        }
+
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', textColor);
+
+
+        document.getElementById('btn3').addEventListener('click', function(){
+            document.getElementById('headerText').innerHTML = "This text has been changed by event managent";
+        })
+    </script>
+</body>
+</html>

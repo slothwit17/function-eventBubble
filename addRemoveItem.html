@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event bubble</title>
+</head>
+<body>
+    <h1>Event bubble process</h1>
+
+    <div id="container">
+        <ul id="myList">
+            <li id="firstLi" class="items">Lorem, ipsum dolor.</li>
+            <li class="items">Quisquam, aperiam! Perspiciatis?</li>
+            <li class="items">Tempora, mollitia accusantium?</li>
+            <li class="items">Libero, aliquid dolor?</li>
+            <li class="items">Esse, ducimus error!</li>
+        </ul>
+
+        <button id="addBtn">Add new item</button>
+    </div>
+   
+    <script>
+
+        /** 
+         * This can not remove new added items
+         
+       var items = document.getElementsByTagName('li');
+       for (let i = 0; i < items.length; i++) {
+        var item = items[i];
+
+        item.addEventListener('click', function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+        
+       }
+
+       */
+
+       document.getElementById('addBtn').addEventListener('click',function(){
+
+        var itemParent = document.getElementById('myList');
+        var newItem = document.createElement('li');
+        newItem.innerText = 'This is a new item';
+        itemParent.appendChild(newItem);
+
+       })
+
+       // To remove new added items we can use event bubble.
+       document.getElementById('myList').addEventListener('click', function(event){
+        // console.log(this, event.target); // this: Ul; event.target: clicked li
+        event.target.parentNode.removeChild(event.target);
+       })
+        
+    </script>
+</body>
+</html>
